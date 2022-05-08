@@ -64,6 +64,5 @@ mengatur tampilan di admin site
         date_hierarchy = 'publish' 
         ordering = ['status', 'publish']
     admin.site.register(Post, PostAdmin)
-menggunakan Queryset dan manager
-membuat object
-    python manage.py shell
+membuat list dan detail view
+    
