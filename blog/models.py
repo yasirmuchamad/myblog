@@ -1,16 +1,17 @@
+from tkinter import CASCADE
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Post(models.Model){
+class Post(models.Model):
     STATUS_CHOICES = {
-        ('draft':'Draft'),
-        ('published':'Published'),
+        ('draft','Draft'),
+        ('published','Published'),
     }
-    title = models.CharField(max_lenth=250)
+    title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
-    author = models.ForeignKey(User, related_name='blog_posts')
+    author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -22,4 +23,3 @@ class Post(models.Model){
 
     def __str__(self):
         return self.title
-}
