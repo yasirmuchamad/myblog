@@ -38,15 +38,15 @@
   <p>thera are no comment yet.</p>
   {% endfor %}
   {% if new_comment %}
-  <h2>Your comment has been added.</h2>
+    <h2>Your comment has been added.</h2>
   {% else %}
-  <h2>Add New Comment</h2>
-  <form method="post">
-    {{ comment_form.as_p }}
-    {% csrf_token %}
-    <p>
-      <input type="submit" name="" value="Add Comment">
-    </p>
-  </form>
+    <h2>Add New Comment</h2>
+    <form method="post">
+      {{ comment_form.as_p }}
+      {% csrf_token %}
+      <p>
+        <input type="submit" name="" value="Add Comment">
+      </p>
+    </form>
   {% endif %}
 {% endblock %}
